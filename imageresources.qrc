@@ -1,0 +1,41 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/searchButton.png</file>
+        <file>images/triangle.png</file>
+        <file>images/down.png</file>
+        <file>images/searchButton1.png</file>
+        <file>images/back.png</file>
+        <file>images/labelBackground.png</file>
+        <file>images/background.png</file>
+        <file>images/return.png</file>
+        <file>images/language.png</file>
+        <file>images/history.png</file>
+        <file>images/publishCourse.png</file>
+        <file>images/rss.png</file>
+        <file>images/schedule.png</file>
+        <file>images/yu.png</file>
+        <file>images/homePage.png</file>
+        <file>images/avatar.png</file>
+        <file>images/dancing.png</file>
+        <file>images/drive.png</file>
+        <file>images/earlyEducation.png</file>
+        <file>images/instrument.png</file>
+        <file>images/management.png</file>
+        <file>images/martial.png</file>
+        <file>images/sports.png</file>
+        <file>images/basicSubject.png</file>
+        <file>images/vocal.png</file>
+        <file>images/search.png</file>
+        <file>images/search1.png</file>
+        <file>images/shoppingCart.png</file>
+        <file>images/scanning.png</file>
+        <file>images/loadingPage.png</file>
+	  <file>images/aboard.png</file>
+	  <file>images/mainPage.png</file>
+	  <file>images/monCompte.png</file>
+	  <file>images/nearby.png</file>
+	  <file>images/camarade.png</file>
+        <file>images/cooking.png</file>
+        <file>images/music.png</file>
+    </qresource>
+</RCC>
