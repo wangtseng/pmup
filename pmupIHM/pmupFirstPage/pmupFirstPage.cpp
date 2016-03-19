@@ -68,9 +68,9 @@ void pmupFirstPage::constructIHM(){
     advertisementArea->setFixedHeight(this->height*0.64);
 
     myLayout = new QVBoxLayout(this);
+    myLayout->addWidget(titleBar);
     myLayout->addWidget(popularWidget);
     myLayout->addWidget(advertisementArea);
-    myLayout->addWidget(titleBar);
     myLayout->setSpacing(0);
     myLayout->setMargin(0);
 }

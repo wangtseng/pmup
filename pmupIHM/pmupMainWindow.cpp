@@ -54,7 +54,7 @@ void pmupMainWindow::initVariable(){
 //! \brief pmupEnterPage::constructIHM
 //!
 void pmupMainWindow::constructIHM(){
-    //!-----------------------------------------------------------------------------------
+
     firstPage = new pmupFirstPage();
     firstPage->setSize(this->appWidth, this->appHeight*0.9);
 
@@ -120,8 +120,9 @@ void pmupMainWindow::constructIHM(){
     optionButtonsContainerLayout->setSpacing(0);
 
     myLayout = new QVBoxLayout(this);
-    myLayout->addWidget(optionButtonsContainer);
     myLayout->addWidget(mainPagesContainer);
+    myLayout->addWidget(optionButtonsContainer);
+
     myLayout->setSpacing(0);
     myLayout->setMargin(0);
 
