@@ -13,7 +13,9 @@ pmupFirstPage::pmupFirstPage(QWidget *parent) : QWidget(parent){
 //! \brief pmupFirstPage::initVariable
 //!
 void pmupFirstPage::initVariable(){
-
+    QImageReader reader(":/images/background.png");
+    reader.setAutoTransform(true);
+    newImage = reader.read();
 }
 
 //!------------------------------------------------------------------------------------------------
@@ -22,13 +24,11 @@ void pmupFirstPage::initVariable(){
 //!
 void pmupFirstPage::constructIHM(){
     //!--title bar of the fist page
-    titleBar = new QLabel();
-    titleBar->setFixedHeight(this->height*0.05);
 
     cityOption = new QComboBox();
     cityOption->setFixedSize(this->width*0.2, this->height*0.05);
 
-    cityOption->setStyleSheet("QComboBox {border: 0px solid gray;border-radius: 0px;padding: 1px 0px 0px 0px; color: mediumspringgreen}"
+    cityOption->setStyleSheet("QComboBox {background-color: AliceBlue; border: 0px solid gray;border-radius: 0px;padding: 1px 0px 0px 0px; color: mediumspringgreen}"
                               "QComboBox::drop-down { subcontrol-origin: padding}"
                               "QComboBox QAbstractItemView::item{height:30px;}"
                               "QComboBox::down-arrow {border-image: url(:images/pen.png); } "
@@ -37,19 +37,24 @@ void pmupFirstPage::constructIHM(){
     fillCityOptions(cityOption, this->width*0.08, this->height*0.05);
 
     serchingArea = new QLineEdit();
-    serchingArea->setFixedSize(this->width*0.66, this->height*0.05);
-    serchingArea->setStyleSheet("QLineEdit {border: 1px solid mediumspringgreen; color: mediumspringgreen;}");
+    serchingArea->setFixedSize(this->width*0.62, this->height*0.05);
+    serchingArea->setStyleSheet("QLineEdit {background-color: AliceBlue; border: 1px solid mediumspringgreen; color: mediumspringgreen;}");
 
     searchingButton = new QToolButton();
     searchingButton->setFixedSize(this->width*0.07, this->height*0.05);
     searchingButton->setIconSize(QSize(this->width*0.07, this->height*0.05));
     searchingButton->setIcon(QIcon(":/images/search.png"));
+    searchingButton->setStyleSheet("background-color:AliceBlue");
 
     scanQCodeButton = new QToolButton();
     scanQCodeButton->setFixedSize(this->width*0.07, this->height*0.05);
     scanQCodeButton->setIconSize(QSize(this->width*0.07, this->height*0.05));
     scanQCodeButton->setIcon(QIcon(":/images/scanning.png"));
+    scanQCodeButton->setStyleSheet("background-color:AliceBlue");
 
+    titleBar = new QLabel();
+    titleBar->setStyleSheet("background-color:AliceBlue; border-image:url(:images/whitespace.png)");
+    titleBar->setFixedSize(this->width*0.96, this->height*0.05);
     titleBarLayout = new QHBoxLayout(titleBar);
     titleBarLayout->addWidget(cityOption);
     titleBarLayout->addWidget(serchingArea);
@@ -58,12 +63,27 @@ void pmupFirstPage::constructIHM(){
     titleBarLayout->setSpacing(0);
     titleBarLayout->setMargin(0);
 
-    subjectsArea = new pmupSubjectsPage(this->width, int(this->height*0.3));
+    imageLabel= new QLabel();
+    imageLabel->setWindowOpacity(0.8);
+    imageLabel->setStyleSheet("border-image:url(:images/background.png);");
+    imageLabel->setFixedHeight(this->height*0.11);
+    imageLabel->setBackgroundRole(QPalette::Base);
+    imageLabel->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
+    imageLabel->setScaledContents(true);
+//    imageLabel->setPixmap(QPixmap::fromImage(newImage));
+//    imageLabel->adjustSize();
+    imageLabelLayout = new QVBoxLayout(imageLabel);
+    imageLabelLayout->addWidget(titleBar);
+    //imageLabelLayout->setSpacing(0);
+    //imageLabelLayout->setMargin(0);
+
+
+    subjectsArea = new pmupSubjectsPage(this->width, int(this->height*0.24));
 
     advertisementArea = new AdvertisementArea(this->width, int(this->height*0.65));
 
     myLayout = new QVBoxLayout(this);
-    myLayout->addWidget(titleBar);
+    myLayout->addWidget(imageLabel);
     myLayout->addWidget(subjectsArea);
     myLayout->addWidget(advertisementArea);
     myLayout->setSpacing(0);

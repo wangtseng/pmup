@@ -16,6 +16,7 @@
 #include <QPushButton>
 #include <QString>
 #include <QDebug>
+#include <QTabWidget>
 
 #include "pmupFirstPage.h"
 #include "pmupCamaradePage.h"
@@ -24,6 +25,9 @@
 
 
 
+/**
+ * @brief The pmupMainWindow class
+ */
 class pmupMainWindow : public QFrame
 {
     Q_OBJECT
@@ -35,6 +39,7 @@ private:
     QString globalBackgroundColor;
     QString globalFontColor;
     QString bottomBorderColor;
+    QString the_tab_style;
 
     QPixmap *pixmap;
     QScreen *screen;
@@ -44,16 +49,7 @@ private:
     pmupMinePage* minePage;
     pmupNearbyPage* nearPage;
 
-    QPushButton* firstPageOption;
-    QPushButton* camaradePageOption;
-    QPushButton* minePageOption;
-    QPushButton* nearPageOption;
-    QLabel * indicationLabel;
-
-    QWidget *mainPagesContainer;
-    QGridLayout *mainPagesContainerLayout;
-    QLabel *optionButtonsContainer;
-    QHBoxLayout *optionButtonsContainerLayout;
+    QTabWidget *mainPagesContainer;
 
     QVBoxLayout *myLayout;
 

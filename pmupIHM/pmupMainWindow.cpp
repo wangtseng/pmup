@@ -46,6 +46,11 @@ void pmupMainWindow::initVariable(){
     globalBackgroundColor = "mediumspringgreen";
     globalFontColor = "beige";
     bottomBorderColor = "red";
+
+    the_tab_style =   "QTabWidget::tab-bar {alignment: left;}"
+                      "QTabBar::tab { background: mediumspringgreen; color: beige; padding: 0px; border-top: 0px solid gainsboro; border-bottom: 0px solid orange; height: "+QString::number(appHeight*0.05)+"px; width: "+QString::number(appWidth*0.15)+"px;  } "
+                      "QTabBar::tab:selected {background: beige; color: mediumspringgreen; padding: 0px; border-top: 0px solid gainsboro; border-bottom: 0px solid orange;} "
+                      "QTabWidget::pane { border: 0; }";
 }
 
 //! --------------------------------------------------------------------
@@ -55,74 +60,30 @@ void pmupMainWindow::initVariable(){
 void pmupMainWindow::constructIHM(){
 
     firstPage = new pmupFirstPage();
-    firstPage->setSize(this->appWidth, this->appHeight*0.9);
+    firstPage->setSize(this->appWidth, this->appHeight*0.95);
 
     camaradePage = new pmupCamaradePage();
-    camaradePage->setSize(this->appWidth, this->appHeight*0.9);
+    camaradePage->setSize(this->appWidth, this->appHeight*0.95);
 
     nearPage = new pmupNearbyPage();
-    nearPage->setSize(this->appWidth, this->appHeight*0.9);
+    nearPage->setSize(this->appWidth, this->appHeight*0.95);
 
     minePage = new pmupMinePage();
-    minePage->setSize(this->appWidth, this->appHeight*0.9);
+    minePage->setSize(this->appWidth, this->appHeight*0.95);
 
-    mainPagesContainer = new QWidget();
-    mainPagesContainer->setFixedHeight(this->appHeight*0.9);
-    mainPagesContainerLayout = new QGridLayout(mainPagesContainer);
-    mainPagesContainerLayout->addWidget(firstPage, 0, 0);
-    mainPagesContainerLayout->addWidget(camaradePage, 0, 1);
-    mainPagesContainerLayout->addWidget(nearPage, 1, 0);
-    mainPagesContainerLayout->addWidget(minePage, 1, 1);
-    mainPagesContainerLayout->setMargin(0);
-    camaradePage->close();
-    minePage->close();
-    nearPage->close();
-    camaradePage->setFixedSize(0,0);
-    minePage->setFixedSize(0,0);
-    nearPage->setFixedSize(0,0);
-
-
-    //!---------------------------------------------------------------------------------------
-    optionButtonsContainer = new QLabel();
-    optionButtonsContainerLayout = new QHBoxLayout(optionButtonsContainer);
-
-    firstPageOption = new QPushButton("课程");
-    firstPageOption->setFixedSize(QSize(appWidth*0.15, appHeight*0.07));
-    firstPageOption->setFlat(true);
-    firstPageOption->setFont(QFont("Segoe UI",13, QFont::AnyStyle, true));
-
-    camaradePageOption = new QPushButton("学友");
-    camaradePageOption->setFixedSize(QSize(appWidth*0.15, appHeight*0.07));
-    camaradePageOption->setFlat(true);
-    camaradePageOption->setFont(QFont("Segoe UI",13, QFont::AnyStyle, true));
-
-    nearPageOption = new QPushButton("附近");
-    nearPageOption->setFixedSize(QSize(appWidth*0.15, appHeight*0.07));
-    nearPageOption->setFlat(true);
-    nearPageOption->setFont(QFont("Segoe UI",13, QFont::AnyStyle, true));
-
-    minePageOption = new QPushButton("我的");
-    minePageOption->setFixedSize(QSize(appWidth*0.15, appHeight*0.07));
-    minePageOption->setFlat(true);
-    minePageOption->setFont(QFont("Segoe UI",13, QFont::AnyStyle, true));
-
-    indicationLabel = new QLabel();
-    indicationLabel->setFixedSize(QSize(appWidth*0.4, appHeight*0.1));
-    indicationLabel->setStyleSheet("background-color:aliceBlue");
-
-    optionButtonsContainerLayout->addWidget(firstPageOption);
-    optionButtonsContainerLayout->addWidget(camaradePageOption);
-    optionButtonsContainerLayout->addWidget(nearPageOption);
-    optionButtonsContainerLayout->addWidget(minePageOption);
-    optionButtonsContainerLayout->addWidget(indicationLabel);
-    optionButtonsContainerLayout->setMargin(0);
-    optionButtonsContainerLayout->setSpacing(0);
+    mainPagesContainer = new QTabWidget();
+    mainPagesContainer->setTabPosition(QTabWidget::South);
+    mainPagesContainer->setStyleSheet(the_tab_style);
+    mainPagesContainer->setFixedHeight(this->appHeight);
+    mainPagesContainer->insertTab(0, firstPage, "课程");
+    mainPagesContainer->insertTab(1, camaradePage, "学友");
+    mainPagesContainer->insertTab(2, nearPage, "附近");
+    mainPagesContainer->insertTab(3, minePage, "我的");
 
     myLayout = new QVBoxLayout(this); 
     myLayout->addWidget(mainPagesContainer);
-    myLayout->addWidget(optionButtonsContainer);
-    myLayout->setSpacing(0);
-    myLayout->setMargin(0);
+    myLayout->setSpacing(2);
+    myLayout->setMargin(2);
 }
 
 //! --------------------------------------------------------------------
@@ -147,10 +108,7 @@ void pmupMainWindow::drawBackground(){
 //! \brief pmupEnterPage::setConnections
 //!
 void pmupMainWindow::setConnections(){
-    this->connect(firstPageOption,    SIGNAL(clicked()),this, SLOT(onFirstPageOptionClicked()));
-    this->connect(camaradePageOption, SIGNAL(clicked()),this, SLOT(onCamaradePageOptionClicked()));
-    this->connect(nearPageOption,     SIGNAL(clicked()),this, SLOT(onNearPageOptionClicked()));
-    this->connect(minePageOption,     SIGNAL(clicked()),this, SLOT(onMinePageOptionClicked()));
+
 }
 
 //! ---------------------------------------------------------------------------------------------
@@ -158,34 +116,6 @@ void pmupMainWindow::setConnections(){
 //! \brief pmupMainWindow::onFirstPageOptionClicked
 //!
 void pmupMainWindow::onFirstPageOptionClicked(){
-    qDebug()<<"onFirstPageOptionClicked";
-    firstPage->show();
-    camaradePage->close();
-    minePage->close();
-    nearPage->close();
-    firstPage->setFixedSize(appWidth,appHeight*0.9);
-    camaradePage->setFixedSize(0,0);
-    minePage->setFixedSize(0,0);
-    nearPage->setFixedSize(0,0);
-
-    firstPageOption->setStyleSheet( "border: 0px solid orange;"
-                                    "background-color:"+this->globalFontColor +
-                                    ";color:" + this->globalBackgroundColor );
-
-    camaradePageOption->setStyleSheet("border: 0px solid orange;"
-                                      "background-color:"+this->globalBackgroundColor +
-                                       ";color:" + this->globalFontColor );
-
-    nearPageOption->setStyleSheet("border: 0px solid orange;"
-                                  "background-color:"+this->globalBackgroundColor +
-                                  ";color:" + this->globalFontColor );
-
-    minePageOption->setStyleSheet("border: 0px solid orange;"
-                                  "background-color:"+this->globalBackgroundColor +
-                                  ";color:" + this->globalFontColor );
-
-
-    //this->setStyleSheet("background-color:" + globalBackgroundColor);
 
 }
 
@@ -194,34 +124,7 @@ void pmupMainWindow::onFirstPageOptionClicked(){
 //! \brief pmupMainWindow::onCamaradePageOptionClicked
 //!
 void pmupMainWindow::onCamaradePageOptionClicked(){
-    qDebug()<<"onCamaradePageOptionClicked";
-    firstPage->close();
-    camaradePage->show();
-    minePage->close();
-    nearPage->close();
-    firstPage->setFixedSize(0,0);
-    camaradePage->setFixedSize(appWidth,appHeight*0.9);
-    minePage->setFixedSize(0,0);
-    nearPage->setFixedSize(0,0);
 
-    firstPageOption->setStyleSheet("border: 0px solid orange;"
-                                   "background-color:"+this->globalBackgroundColor +
-                                   ";color:" + this->globalFontColor );
-
-    camaradePageOption->setStyleSheet("border: 0px solid orange;"
-                                      "background-color:"+this->globalFontColor +
-                                      ";color:" + this->globalBackgroundColor );
-
-    nearPageOption->setStyleSheet( "border: 0px solid orange;"
-                                   "background-color:"+this->globalBackgroundColor +
-                                   ";color:" + this->globalFontColor );
-
-    minePageOption->setStyleSheet( "border: 0px solid orange;"
-                                   "background-color:"+this->globalBackgroundColor +
-                                   ";color:" + this->globalFontColor );
-
-
-    //this->setStyleSheet("background-color:" + globalBackgroundColor);
 }
 
 //! ---------------------------------------------------------------------------------------------
@@ -229,34 +132,6 @@ void pmupMainWindow::onCamaradePageOptionClicked(){
 //! \brief pmupMainWindow::onNearPageOptionClicked
 //!
 void pmupMainWindow::onNearPageOptionClicked(){
-    qDebug()<<"onNearPageOptionClicked";
-    firstPage->close();
-    camaradePage->close();
-    minePage->close();
-    nearPage->show();
-    firstPage->setFixedSize(0,0);
-    camaradePage->setFixedSize(0,0);
-    minePage->setFixedSize(0,0);
-    nearPage->setFixedSize(appWidth,appHeight*0.9);
-
-    firstPageOption->setStyleSheet("border: 0px solid orange;"
-                                   "background-color:"+this->globalBackgroundColor +
-                                   ";color:" + this->globalFontColor );
-
-    camaradePageOption->setStyleSheet( "border: 0px solid orange;"
-                                       "background-color:"+this->globalBackgroundColor +
-                                   ";color:" + this->globalFontColor );
-
-    nearPageOption->setStyleSheet("border: 0px solid orange;"
-                                  "background-color:"+this->globalFontColor +
-                                      ";color:" + this->globalBackgroundColor );
-
-    minePageOption->setStyleSheet( "border: 0px solid orange;"
-                                   "background-color:"+this->globalBackgroundColor +
-                                   ";color:" + this->globalFontColor );
-
-
-    //this->setStyleSheet("background-color:" + globalBackgroundColor);
 
 }
 
@@ -265,31 +140,5 @@ void pmupMainWindow::onNearPageOptionClicked(){
 //! \brief pmupMainWindow::onMinePageOptionClicked
 //!
 void pmupMainWindow::onMinePageOptionClicked(){
-    qDebug()<<"onMinePageOptionClicked";
-    firstPage->close();
-    camaradePage->close();
-    minePage->show();
-    nearPage->close();
-    firstPage->setFixedSize(0,0);
-    camaradePage->setFixedSize(0,0);
-    minePage->setFixedSize(appWidth,appHeight*0.9);
-    nearPage->setFixedSize(0,0);
 
-    firstPageOption->setStyleSheet("border: 0px solid orange;"
-                                   "background-color:"+this->globalBackgroundColor +
-                                   ";color:" + this->globalFontColor );
-
-    camaradePageOption->setStyleSheet( "border: 0px solid orange;"
-                                       "background-color:"+this->globalBackgroundColor +
-                                   ";color:" + this->globalFontColor );
-
-    nearPageOption->setStyleSheet( "border: 0px solid orange;"
-                                   "background-color:"+this->globalBackgroundColor +
-                                   ";color:" + this->globalFontColor );
-
-    minePageOption->setStyleSheet("border: 0px solid orange;"
-                                  "background-color:"+this->globalFontColor +
-                                      ";color:" + this->globalBackgroundColor );
-
-    //this->setStyleSheet("background-color:" + globalBackgroundColor);
 }

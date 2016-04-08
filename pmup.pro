@@ -20,7 +20,7 @@ INCLUDEPATH += pissConnectionFactory
 
 
 SOURCES +=  main.cpp\
-            pmupIHM\pmupMainWindow.cpp \
+            pmupIHM/pmupMainWindow.cpp \
             pmupIHM/pmupNearbyPage/pmupNearbyPage.cpp \
             pmupIHM/pmupCamaradePage/pmupCamaradePage.cpp \
             pmupIHM/pmupMinePage/pmupMinePage.cpp \
@@ -43,7 +43,7 @@ SOURCES +=  main.cpp\
     pmupIHM/pmupFirstPage/AdvertisementArea.cpp
 
 
-HEADERS  += pmupIHM\pmupMainWindow.h \
+HEADERS  += pmupIHM/pmupMainWindow.h \
             pmupIHM/pmupNearbyPage/pmupNearbyPage.h \
             pmupIHM/pmupCamaradePage/pmupCamaradePage.h \
             pmupIHM/pmupMinePage/pmupMinePage.h \

@@ -29,14 +29,17 @@
         <file>images/search1.png</file>
         <file>images/shoppingCart.png</file>
         <file>images/scanning.png</file>
-	  <file>images/aboard.png</file>
-	  <file>images/mainPage.png</file>
-	  <file>images/monCompte.png</file>
-	  <file>images/nearby.png</file>
-	  <file>images/camarade.png</file>
+	 <file>images/aboard.png</file>
+	 <file>images/mainPage.png</file>
+	 <file>images/monCompte.png</file>
+	 <file>images/nearby.png</file>
+	 <file>images/camarade.png</file>
         <file>images/cooking.png</file>
         <file>images/music.png</file>
-	  <file>images/pen.png</file>
-	  <file>images/pen-inverted.png</file>
+	 <file>images/pen.png</file>
+	 <file>images/pen-inverted.png</file>
+	 <file>images/info.png</file>
+	<file>images/whitespace.png</file>
+	<file>images/littlewhitespace.png</file>
     </qresource>
 </RCC>

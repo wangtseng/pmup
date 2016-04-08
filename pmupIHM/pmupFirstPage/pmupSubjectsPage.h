@@ -14,7 +14,6 @@ class pmupSubjectsPage : public QWidget
 
 private:
     QVBoxLayout *subjectsPageLayout;
-    QLabel *textAdvertisementLabel;
     QLabel *subjectPagesIndicationArea;
 
     QWidget *subjectsAreaWidget;

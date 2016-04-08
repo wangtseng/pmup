@@ -49,7 +49,7 @@ int main(int argc, char *argv[]){
     //! main page
     //! ----------------------------------------------------------------------
     pmupMainWindow* enterPage = new pmupMainWindow(appWidth,appHeight);
-    enterPage->show();
+    enterPage->showFullScreen();
 
     //! ----------------------------------------------------------------------
     //! finish splash page and turn into enter page

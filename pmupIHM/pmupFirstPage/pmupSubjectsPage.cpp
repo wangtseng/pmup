@@ -2,85 +2,68 @@
 
 pmupSubjectsPage::pmupSubjectsPage(int width, int height) : QWidget()
 {
-    this->setStyleSheet("background-color:beige");
     this->width = width;
     this->height = height;
     this->setFixedHeight(this->height);
 
-    textAdvertisementLabel = new QLabel();
-    textAdvertisementLabel->setFixedHeight(this->height*0.15);
-
-    subjectPagesIndicationArea = new QLabel();
-    subjectPagesIndicationArea->setFixedHeight(this->height*0.05);
-
     basicSubjectOption = new QPushButton();
-    basicSubjectOption->setFixedSize(QSize(this->width*0.25, this->height*0.4));
-    basicSubjectOption->setIconSize(QSize(this->width*0.20, this->height*0.3));
+    basicSubjectOption->setFixedSize(QSize(this->width*0.25, this->height*0.5));
+    basicSubjectOption->setIconSize(QSize(this->width*0.22, this->height*0.4));
     basicSubjectOption->setIcon(QIcon(":/images/basicSubject.png"));
     basicSubjectOption->setFlat(true);
-    basicSubjectOption->setStyleSheet("QPushButton{ color: rgb(255, 255, 255);background-color: rgb(167, 205, 255); border:none;padding: 3px;} "
-                                      "QPushButton:hover, QPushButton:pressed , QPushButton:checked{background-color: rgb(85, 170, 255);}");
+    //basicSubjectOption->setStyleSheet("QPushButton{background-color: beige; border:none;} ");
 
     languageOption = new QPushButton();
-    languageOption->setFixedSize(QSize(this->width*0.25, this->height*0.4));
+    languageOption->setFixedSize(QSize(this->width*0.25, this->height*0.5));
     languageOption->setIcon(QIcon(":/images/language.png"));
-    languageOption->setIconSize(QSize(this->width*0.20, this->height*0.3));
+    languageOption->setIconSize(QSize(this->width*0.22, this->height*0.4));
     languageOption->setFlat(true);
-    languageOption->setStyleSheet("QPushButton{ color: rgb(255, 255, 255);background-color: rgb(167, 205, 255); border:none;padding: 3px;} "
-                                      "QPushButton:hover, QPushButton:pressed , QPushButton:checked{background-color: rgb(85, 170, 255);}");
+    //languageOption->setStyleSheet("QPushButton{background-color: beige; border:none;} ");
 
     drivingOption = new QPushButton();
-    drivingOption->setFixedSize(QSize(this->width*0.25, this->height*0.4));
+    drivingOption->setFixedSize(QSize(this->width*0.25, this->height*0.5));
     drivingOption->setIcon(QIcon(":/images/drive.png"));
-    drivingOption->setIconSize(QSize(this->width*0.20, this->height*0.3));
+    drivingOption->setIconSize(QSize(this->width*0.22, this->height*0.4));
     drivingOption->setFlat(true);
-    drivingOption->setStyleSheet("QPushButton{ color: rgb(255, 255, 255);background-color: rgb(167, 205, 255); border:none;padding: 3px;} "
-                                      "QPushButton:hover, QPushButton:pressed , QPushButton:checked{background-color: rgb(85, 170, 255);}");
+    //drivingOption->setStyleSheet("QPushButton{background-color: beige; border:none;} ");
 
     sportOption = new QPushButton();
-    sportOption->setFixedSize(QSize(this->width*0.25, this->height*0.4));
+    sportOption->setFixedSize(QSize(this->width*0.25, this->height*0.5));
     sportOption->setIcon(QIcon(":/images/sports.png"));
-    sportOption->setIconSize(QSize(this->width*0.20, this->height*0.3));
+    sportOption->setIconSize(QSize(this->width*0.22, this->height*0.4));
     sportOption->setFlat(true);
-    sportOption->setStyleSheet("QPushButton{ color: rgb(255, 255, 255);background-color: rgb(167, 205, 255); border:none;padding: 3px;} "
-                                      "QPushButton:hover, QPushButton:pressed , QPushButton:checked{background-color: rgb(85, 170, 255);}");
+    //sportOption->setStyleSheet("QPushButton{background-color: beige; border:none;} ");
 
     cookingOption = new QPushButton();
-    cookingOption->setFixedSize(QSize(this->width*0.25, this->height*0.4));
+    cookingOption->setFixedSize(QSize(this->width*0.25, this->height*0.5));
     cookingOption->setIcon(QIcon(":/images/cooking.png"));
-    cookingOption->setIconSize(QSize(this->width*0.20, this->height*0.3));
+    cookingOption->setIconSize(QSize(this->width*0.22, this->height*0.4));
     cookingOption->setFlat(true);
-    cookingOption->setStyleSheet("QPushButton{ color: rgb(255, 255, 255);background-color: rgb(167, 205, 255); border:none;padding: 3px;} "
-                                      "QPushButton:hover, QPushButton:pressed , QPushButton:checked{background-color: rgb(85, 170, 255);}");
+    //cookingOption->setStyleSheet("QPushButton{background-color: beige; border:none;} ");
 
     musicOption = new QPushButton();
-    musicOption->setFixedSize(QSize(this->width*0.25, this->height*0.4));
+    musicOption->setFixedSize(QSize(this->width*0.25, this->height*0.5));
     musicOption->setIcon(QIcon(":/images/music.png"));
-    musicOption->setIconSize(QSize(this->width*0.20, this->height*0.3));
+    musicOption->setIconSize(QSize(this->width*0.22, this->height*0.4));
     musicOption->setFlat(true);
-    musicOption->setStyleSheet("QPushButton{ color: rgb(255, 255, 255);background-color: rgb(167, 205, 255); border:none;padding: 3px;} "
-                                      "QPushButton:hover, QPushButton:pressed , QPushButton:checked{background-color: rgb(85, 170, 255);}");
-
+    //musicOption->setStyleSheet("QPushButton{background-color: beige; border:none;} ");
 
     aboardOption = new QPushButton();
-    aboardOption->setFixedSize(QSize(this->width*0.25, this->height*0.4));
+    aboardOption->setFixedSize(QSize(this->width*0.25, this->height*0.5));
     aboardOption->setIcon(QIcon(":/images/aboard.png"));
-    aboardOption->setIconSize(QSize(this->width*0.20, this->height*0.3));
+    aboardOption->setIconSize(QSize(this->width*0.22, this->height*0.4));
     aboardOption->setFlat(true);
-    aboardOption->setStyleSheet("QPushButton{ color: rgb(255, 255, 255);background-color: rgb(167, 205, 255); border:none;padding: 3px;} "
-                                      "QPushButton:hover, QPushButton:pressed , QPushButton:checked{background-color: rgb(85, 170, 255);}");
+    //aboardOption->setStyleSheet("QPushButton{background-color: beige; border:none;} ");
 
     dancingOption = new QPushButton();
-    dancingOption->setFixedSize(QSize(this->width*0.25, this->height*0.4));
+    dancingOption->setFixedSize(QSize(this->width*0.25, this->height*0.5));
     dancingOption->setIcon(QIcon(":/images/dancing.png"));
-    dancingOption->setIconSize(QSize(this->width*0.20, this->height*0.3));
+    dancingOption->setIconSize(QSize(this->width*0.22, this->height*0.4));
     dancingOption->setFlat(true);
-    dancingOption->setStyleSheet("QPushButton{ color: rgb(255, 255, 255);background-color: rgb(167, 205, 255); border:none;padding: 3px;} "
-                                      "QPushButton:hover, QPushButton:pressed , QPushButton:checked{background-color: rgb(85, 170, 255);}");
-
+    //dancingOption->setStyleSheet("QPushButton{background-color: beige; border:none;} ");
 
     subjectsAreaWidget = new QWidget();
-    subjectsAreaWidget->setStyleSheet("background-color:aliceBlue; border: 0px solid gaisboro;");
+    subjectsAreaWidget->setStyleSheet("background-color:beige; border: 0px solid lightgray;");
 
     subjectsAreaLayout = new QGridLayout(subjectsAreaWidget);
     subjectsAreaLayout->addWidget(basicSubjectOption, 0, 0);
@@ -95,9 +78,7 @@ pmupSubjectsPage::pmupSubjectsPage(int width, int height) : QWidget()
     subjectsAreaLayout->setMargin(0);
 
     subjectsPageLayout = new QVBoxLayout(this);
-    subjectsPageLayout->addWidget(textAdvertisementLabel);
     subjectsPageLayout->addWidget(subjectsAreaWidget);
-    subjectsPageLayout->addWidget(subjectPagesIndicationArea);
     subjectsPageLayout->setSpacing(0);
     subjectsPageLayout->setMargin(0);
 }

@@ -10,6 +10,8 @@
 #include <QComboBox>
 #include <QToolButton>
 #include <QPushButton>
+#include <QImage>
+#include <QImageReader>
 
 #include <QDebug>
 #include "SearchingArea.h"
@@ -39,7 +41,11 @@ private:
     AdvertisementArea *advertisementArea;
 
     QLabel *titleBar;
+    QLabel *imageLabel;
+    QVBoxLayout *imageLabelLayout;
+
     pmupSubjectsPage *subjectsArea;
+    QImage newImage;
 
 public:
     void initVariable();
