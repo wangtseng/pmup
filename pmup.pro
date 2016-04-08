@@ -39,7 +39,8 @@ SOURCES +=  main.cpp\
             pissConnectionFactory/pissReceptionTask.cpp \
             pissConnectionFactory/pissServer.cpp \
             pissConnectionFactory/pissTransmissionTask.cpp \
-    pmupIHM/pmupFirstPage/pmupSubjectsPage.cpp
+    pmupIHM/pmupFirstPage/pmupSubjectsPage.cpp \
+    pmupIHM/pmupFirstPage/AdvertisementArea.cpp
 
 
 HEADERS  += pmupIHM\pmupMainWindow.h \
@@ -61,7 +62,8 @@ HEADERS  += pmupIHM\pmupMainWindow.h \
             pissConnectionFactory/pissReceptionTask.h \
             pissConnectionFactory/pissServer.h \
             pissConnectionFactory/pissTransmissionTask.h \
-    pmupIHM/pmupFirstPage/pmupSubjectsPage.h
+    pmupIHM/pmupFirstPage/pmupSubjectsPage.h \
+    pmupIHM/pmupFirstPage/AdvertisementArea.h
 
 
 RESOURCES += imageresources.qrc

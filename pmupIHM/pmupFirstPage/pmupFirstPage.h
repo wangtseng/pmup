@@ -10,9 +10,12 @@
 #include <QComboBox>
 #include <QToolButton>
 #include <QPushButton>
+
 #include <QDebug>
 #include "SearchingArea.h"
 #include "pmupSubjectsPage.h"
+#include "AdvertisementArea.h"
+
 
 
 class pmupFirstPage : public QWidget
@@ -25,7 +28,6 @@ private:
 
     QVBoxLayout *myLayout;
     QHBoxLayout *titleBarLayout;
-    QHBoxLayout *popularWidgetLayout;
 
     QComboBox *cityOption;
 
@@ -34,12 +36,9 @@ private:
     QToolButton *searchingButton;
     QToolButton *scanQCodeButton;
 
-    QWidget *popularWidget;
-    QWidget *advertisementArea;
+    AdvertisementArea *advertisementArea;
 
     QLabel *titleBar;
-    QLabel *rankingLabel;
-
     pmupSubjectsPage *subjectsArea;
 
 public:

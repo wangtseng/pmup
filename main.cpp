@@ -36,6 +36,8 @@ int main(int argc, char *argv[]){
     QSplashScreen splash(splashPixmap);
     splash.showFullScreen();
 
+    QThread::sleep(1);
+
     //! ----------------------------------------------------------------------
     //! simulate task to request informations from server side
     //! ---------------------------------------------------------------------- 

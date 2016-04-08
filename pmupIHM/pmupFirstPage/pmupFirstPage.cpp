@@ -5,7 +5,7 @@
  * @param parent
  */
 pmupFirstPage::pmupFirstPage(QWidget *parent) : QWidget(parent){
-    this->setStyleSheet("background-color:beige;");
+    this->setStyleSheet("background-color:beige; border: 0px solid gray;");
 }
 
 //!------------------------------------------------------------------------------------------------
@@ -23,26 +23,32 @@ void pmupFirstPage::initVariable(){
 void pmupFirstPage::constructIHM(){
     //!--title bar of the fist page
     titleBar = new QLabel();
-    titleBar->setFixedHeight(this->height*0.06);
+    titleBar->setFixedHeight(this->height*0.05);
 
     cityOption = new QComboBox();
-    cityOption->setFixedSize(this->width*0.2, this->height*0.06);
-    cityOption->setStyleSheet("QComboBox {border: 0px solid gray;border-radius: 3px;padding: 1px 18px 1px 3px;min-width: 6em; color: mediumspringgrenn}"
-                              "QComboBox::drop-down { subcontrol-origin: padding;subcontrol-position: top right;width: 15px;border-left-width: 1px; border-left-color: lightGray; border-left-style: solid;border-top-right-radius: 3px; border-bottom-right-radius: 3px;}"
-                              "QComboBox::down-arrow {border-image: url(:/down_arrow.png); } "
-                              "QComboBox::down-arrow:on {top: 1px; left: 1px;}");
+    cityOption->setFixedSize(this->width*0.2, this->height*0.05);
 
-    fillCityOptions(cityOption, this->width*0.1, this->height*0.06);
+    cityOption->setStyleSheet("QComboBox {border: 0px solid gray;border-radius: 0px;padding: 1px 0px 0px 0px; color: mediumspringgreen}"
+                              "QComboBox::drop-down { subcontrol-origin: padding}"
+                              "QComboBox QAbstractItemView::item{height:30px;}"
+                              "QComboBox::down-arrow {border-image: url(:images/pen.png); } "
+                              "QComboBox::up-arrow {image: url(:/images/pen.png);}");
+
+    fillCityOptions(cityOption, this->width*0.08, this->height*0.05);
 
     serchingArea = new QLineEdit();
-    serchingArea->setFixedSize(this->width*0.6, this->height*0.06);
-    serchingArea->setStyleSheet("QLineEdit {border: 0px solid orange; background-color: aliceblue; selection-background-color: darkgray;}");
+    serchingArea->setFixedSize(this->width*0.66, this->height*0.05);
+    serchingArea->setStyleSheet("QLineEdit {border: 1px solid mediumspringgreen; color: mediumspringgreen;}");
 
     searchingButton = new QToolButton();
-    searchingButton->setFixedSize(this->height*0.1, this->height*0.06);
+    searchingButton->setFixedSize(this->width*0.07, this->height*0.05);
+    searchingButton->setIconSize(QSize(this->width*0.07, this->height*0.05));
+    searchingButton->setIcon(QIcon(":/images/search.png"));
 
     scanQCodeButton = new QToolButton();
-    scanQCodeButton->setFixedSize(this->height*0.1, this->height*0.06);
+    scanQCodeButton->setFixedSize(this->width*0.07, this->height*0.05);
+    scanQCodeButton->setIconSize(QSize(this->width*0.07, this->height*0.05));
+    scanQCodeButton->setIcon(QIcon(":/images/scanning.png"));
 
     titleBarLayout = new QHBoxLayout(titleBar);
     titleBarLayout->addWidget(cityOption);
@@ -52,40 +58,36 @@ void pmupFirstPage::constructIHM(){
     titleBarLayout->setSpacing(0);
     titleBarLayout->setMargin(0);
 
-    rankingLabel = new QLabel();
-    rankingLabel->setFixedWidth(int(this->width*0.15));
+    subjectsArea = new pmupSubjectsPage(this->width, int(this->height*0.3));
 
-    subjectsArea = new pmupSubjectsPage(int(this->width*0.85), int(this->height*0.3));
-
-    popularWidget = new QWidget();
-    popularWidgetLayout = new QHBoxLayout(popularWidget);
-    popularWidgetLayout->addWidget(rankingLabel);
-    popularWidgetLayout->addWidget(subjectsArea);
-    popularWidgetLayout->setSpacing(0);
-    popularWidgetLayout->setMargin(0);
-
-    advertisementArea = new QWidget();
-    advertisementArea->setFixedHeight(this->height*0.64);
+    advertisementArea = new AdvertisementArea(this->width, int(this->height*0.65));
 
     myLayout = new QVBoxLayout(this);
     myLayout->addWidget(titleBar);
-    myLayout->addWidget(popularWidget);
+    myLayout->addWidget(subjectsArea);
     myLayout->addWidget(advertisementArea);
     myLayout->setSpacing(0);
     myLayout->setMargin(0);
 }
 
+//! ---------------------------------------------------------------------------------------------
+//!
+//! \brief pmupFirstPage::fillCityOptions
+//! \param cityOption
+//! \param width
+//! \param height
+//!
 void pmupFirstPage::fillCityOptions(QComboBox *cityOption, int width, int height){
     QStringList city_list;
     QStringList color_list;
-    city_list<<"澳门"<<"珠海";
-    color_list<<"green"<<"red";
+    city_list<<"深圳"<<"珠海"<<"广州"<<"香港"<<"台湾"<<"澳门";
+    color_list<<"skyblue"<<"orange"<<"yellow"<<"green"<<"cyan"<<"blue";
     for(int cpt = 0; cpt < color_list.size(); cpt++){
         QPixmap *pix = new QPixmap(QSize(width, height));
         pix->fill(QColor(color_list.at(cpt)));
         cityOption->addItem(QIcon(*pix), city_list.at(cpt));
         cityOption->setIconSize(QSize(width,height));
-        cityOption->setSizeAdjustPolicy(QComboBox::AdjustToContents);
+        //cityOption->setSizeAdjustPolicy(QComboBox::AdjustToContents);
     }
 }
 

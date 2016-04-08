@@ -25,6 +25,8 @@ private:
     QPushButton *sportOption;
     QPushButton *cookingOption;
     QPushButton *musicOption;
+    QPushButton *aboardOption;
+    QPushButton *dancingOption;
 
     int width;
     int height;

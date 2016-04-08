@@ -36,7 +36,6 @@ pmupMainWindow::~pmupMainWindow(){
 void pmupMainWindow::setSize(int appWidth, int appHeight){
     this->appWidth = appWidth;
     this->appHeight = appHeight;
-
 }
 
 //! --------------------------------------------------------------------
@@ -119,13 +118,11 @@ void pmupMainWindow::constructIHM(){
     optionButtonsContainerLayout->setMargin(0);
     optionButtonsContainerLayout->setSpacing(0);
 
-    myLayout = new QVBoxLayout(this);
+    myLayout = new QVBoxLayout(this); 
     myLayout->addWidget(mainPagesContainer);
     myLayout->addWidget(optionButtonsContainer);
-
     myLayout->setSpacing(0);
     myLayout->setMargin(0);
-
 }
 
 //! --------------------------------------------------------------------
@@ -156,6 +153,10 @@ void pmupMainWindow::setConnections(){
     this->connect(minePageOption,     SIGNAL(clicked()),this, SLOT(onMinePageOptionClicked()));
 }
 
+//! ---------------------------------------------------------------------------------------------
+//!
+//! \brief pmupMainWindow::onFirstPageOptionClicked
+//!
 void pmupMainWindow::onFirstPageOptionClicked(){
     qDebug()<<"onFirstPageOptionClicked";
     firstPage->show();
@@ -188,6 +189,10 @@ void pmupMainWindow::onFirstPageOptionClicked(){
 
 }
 
+//! ---------------------------------------------------------------------------------------------
+//!
+//! \brief pmupMainWindow::onCamaradePageOptionClicked
+//!
 void pmupMainWindow::onCamaradePageOptionClicked(){
     qDebug()<<"onCamaradePageOptionClicked";
     firstPage->close();
@@ -219,6 +224,10 @@ void pmupMainWindow::onCamaradePageOptionClicked(){
     //this->setStyleSheet("background-color:" + globalBackgroundColor);
 }
 
+//! ---------------------------------------------------------------------------------------------
+//!
+//! \brief pmupMainWindow::onNearPageOptionClicked
+//!
 void pmupMainWindow::onNearPageOptionClicked(){
     qDebug()<<"onNearPageOptionClicked";
     firstPage->close();
@@ -251,6 +260,10 @@ void pmupMainWindow::onNearPageOptionClicked(){
 
 }
 
+//! ---------------------------------------------------------------------------------------------
+//!
+//! \brief pmupMainWindow::onMinePageOptionClicked
+//!
 void pmupMainWindow::onMinePageOptionClicked(){
     qDebug()<<"onMinePageOptionClicked";
     firstPage->close();
