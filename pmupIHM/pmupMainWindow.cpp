@@ -6,17 +6,13 @@
 //! \brief pmupMainWindow::pmupMainWindow
 //! \param parent
 //!
-pmupMainWindow::pmupMainWindow(int appWidth, int appHeight) : QFrame()
-{
+pmupMainWindow::pmupMainWindow(int appWidth, int appHeight) : QFrame(){
 
     setSize(appWidth, appHeight);
 
     initVariable();
     constructIHM();
     setConnections();
-    onFirstPageOptionClicked();
-
-    //this->drawBackground();
 }
 
 //! -------------------------------------------------------------------
@@ -43,14 +39,14 @@ void pmupMainWindow::setSize(int appWidth, int appHeight){
 //! \brief pmupEnterPage::initVariable
 //!
 void pmupMainWindow::initVariable(){
-    globalBackgroundColor = "mediumspringgreen";
-    globalFontColor = "beige";
+    globalBackgroundColor = "teal";
+    globalFontColor = "aliceblue";
     bottomBorderColor = "red";
 
-    the_tab_style =   "QTabWidget::tab-bar {alignment: left;}"
-                      "QTabBar::tab { background: mediumspringgreen; color: beige; padding: 0px; border-top: 0px solid gainsboro; border-bottom: 0px solid orange; height: "+QString::number(appHeight*0.05)+"px; width: "+QString::number(appWidth*0.15)+"px;  } "
-                      "QTabBar::tab:selected {background: beige; color: mediumspringgreen; padding: 0px; border-top: 0px solid gainsboro; border-bottom: 0px solid orange;} "
-                      "QTabWidget::pane { border: 0; }";
+    tabWidgetStyleSheet = "QTabWidget::tab-bar {alignment: left;}"
+                          "QTabBar::tab { background: teal; color: aliceblue; padding: 0px; border-top: 0px solid gainsboro; border-bottom: 0px solid orange; height: "+QString::number(appHeight*0.06)+"px; width: "+QString::number(appWidth*0.2)+"px;  } "
+                          "QTabBar::tab:selected {background: aliceblue; color: teal; padding: 0px; border-top: 3px solid red; border-bottom: 0px solid orange;} "
+                          "QTabWidget::pane { border: 0; }";
 }
 
 //! --------------------------------------------------------------------
@@ -60,20 +56,21 @@ void pmupMainWindow::initVariable(){
 void pmupMainWindow::constructIHM(){
 
     firstPage = new pmupFirstPage();
-    firstPage->setSize(this->appWidth, this->appHeight*0.95);
+    firstPage->setSize(this->appWidth, this->appHeight*0.94);
 
     camaradePage = new pmupCamaradePage();
-    camaradePage->setSize(this->appWidth, this->appHeight*0.95);
+    camaradePage->setSize(this->appWidth, this->appHeight*0.94);
 
     nearPage = new pmupNearbyPage();
-    nearPage->setSize(this->appWidth, this->appHeight*0.95);
+    nearPage->setSize(this->appWidth, this->appHeight*0.94);
 
     minePage = new pmupMinePage();
-    minePage->setSize(this->appWidth, this->appHeight*0.95);
+    minePage->setSize(this->appWidth, this->appHeight*0.94);
 
     mainPagesContainer = new QTabWidget();
+    mainPagesContainer->setFont(QFont("Helvetica", 14, QFont::AnyStyle, false));
     mainPagesContainer->setTabPosition(QTabWidget::South);
-    mainPagesContainer->setStyleSheet(the_tab_style);
+    mainPagesContainer->setStyleSheet(tabWidgetStyleSheet);
     mainPagesContainer->setFixedHeight(this->appHeight);
     mainPagesContainer->insertTab(0, firstPage, "课程");
     mainPagesContainer->insertTab(1, camaradePage, "学友");
@@ -103,12 +100,20 @@ void pmupMainWindow::drawBackground(){
     this->setMask(pixmap->mask());
 }
 
-//! --------------------------------------------------------------------
+//! ---------------------------------------------------------------------------------------------
 //!
 //! \brief pmupEnterPage::setConnections
 //!
 void pmupMainWindow::setConnections(){
+    this->connect(mainPagesContainer, SIGNAL(currentChanged()), this, SLOT(on_TabOptionCLicked()));
+}
 
+//! ---------------------------------------------------------------------------------------------
+//!
+//! \brief pmupMainWindow::on_TabOptionCLicked
+//!
+void pmupMainWindow::on_TabOptionCLicked(){
+    qDebug()<<"on_TabOptionCLicked"<<mainPagesContainer->currentIndex();
 }
 
 //! ---------------------------------------------------------------------------------------------

@@ -5,6 +5,7 @@
 #include <QLabel>
 #include <QPushButton>
 #include <QLineEdit>
+#include <QTabWidget>
 #include <QHBoxLayout>
 
 
@@ -18,6 +19,9 @@ class AdvertisementArea : public QFrame
 private:
     int width;
     int height;
+
+    QString tabWidgetStyleSheet;
+
     QLabel* xdInfomationBar;
 
     QVBoxLayout *myLayout;
@@ -27,6 +31,8 @@ private:
     QLineEdit *xdInfomationEdit;
 
     QWidget *xdPopularArea;
+    QTabWidget *xdPopularOptions;
+    QVBoxLayout *xdPopularAreaLayout;
 
 public:
     explicit AdvertisementArea(int width, int height);

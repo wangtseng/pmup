@@ -39,7 +39,7 @@ private:
     QString globalBackgroundColor;
     QString globalFontColor;
     QString bottomBorderColor;
-    QString the_tab_style;
+    QString tabWidgetStyleSheet;
 
     QPixmap *pixmap;
     QScreen *screen;
@@ -59,13 +59,13 @@ public:
     void drawBackground();
     void setConnections();
     void setSize(int appWidth, int appHeight);
-
-public slots:
     void onFirstPageOptionClicked();
     void onCamaradePageOptionClicked();
     void onNearPageOptionClicked();
     void onMinePageOptionClicked();
 
+public slots:
+    void on_TabOptionCLicked();
 
 public:
     pmupMainWindow(int appWidth, int appHeight);

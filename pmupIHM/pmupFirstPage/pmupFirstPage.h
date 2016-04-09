@@ -12,6 +12,7 @@
 #include <QPushButton>
 #include <QImage>
 #include <QImageReader>
+#include <QSpacerItem>
 
 #include <QDebug>
 #include "SearchingArea.h"
@@ -38,11 +39,13 @@ private:
     QToolButton *searchingButton;
     QToolButton *scanQCodeButton;
 
+    QSpacerItem *controlAreaItem;
+
     AdvertisementArea *advertisementArea;
 
     QLabel *titleBar;
     QLabel *imageLabel;
-    QVBoxLayout *imageLabelLayout;
+    QGridLayout *imageLabelLayout;
 
     pmupSubjectsPage *subjectsArea;
     QImage newImage;

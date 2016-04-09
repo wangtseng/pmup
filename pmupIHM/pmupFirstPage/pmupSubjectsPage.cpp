@@ -8,62 +8,62 @@ pmupSubjectsPage::pmupSubjectsPage(int width, int height) : QWidget()
 
     basicSubjectOption = new QPushButton();
     basicSubjectOption->setFixedSize(QSize(this->width*0.25, this->height*0.5));
-    basicSubjectOption->setIconSize(QSize(this->width*0.22, this->height*0.4));
+    basicSubjectOption->setIconSize(QSize(this->width*0.2, this->height*0.35));
     basicSubjectOption->setIcon(QIcon(":/images/basicSubject.png"));
     basicSubjectOption->setFlat(true);
-    //basicSubjectOption->setStyleSheet("QPushButton{background-color: beige; border:none;} ");
+    basicSubjectOption->setStyleSheet("QPushButton{background-color: aliceblue; border:none;} ");
 
     languageOption = new QPushButton();
     languageOption->setFixedSize(QSize(this->width*0.25, this->height*0.5));
     languageOption->setIcon(QIcon(":/images/language.png"));
-    languageOption->setIconSize(QSize(this->width*0.22, this->height*0.4));
+    languageOption->setIconSize(QSize(this->width*0.2, this->height*0.35));
     languageOption->setFlat(true);
-    //languageOption->setStyleSheet("QPushButton{background-color: beige; border:none;} ");
+    languageOption->setStyleSheet("QPushButton{background-color: aliceblue; border:none;} ");
 
     drivingOption = new QPushButton();
     drivingOption->setFixedSize(QSize(this->width*0.25, this->height*0.5));
     drivingOption->setIcon(QIcon(":/images/drive.png"));
-    drivingOption->setIconSize(QSize(this->width*0.22, this->height*0.4));
+    drivingOption->setIconSize(QSize(this->width*0.2, this->height*0.35));
     drivingOption->setFlat(true);
-    //drivingOption->setStyleSheet("QPushButton{background-color: beige; border:none;} ");
+    drivingOption->setStyleSheet("QPushButton{background-color: aliceblue; border:none;} ");
 
     sportOption = new QPushButton();
     sportOption->setFixedSize(QSize(this->width*0.25, this->height*0.5));
     sportOption->setIcon(QIcon(":/images/sports.png"));
-    sportOption->setIconSize(QSize(this->width*0.22, this->height*0.4));
+    sportOption->setIconSize(QSize(this->width*0.2, this->height*0.35));
     sportOption->setFlat(true);
-    //sportOption->setStyleSheet("QPushButton{background-color: beige; border:none;} ");
+    sportOption->setStyleSheet("QPushButton{background-color: aliceblue; border:none;} ");
 
     cookingOption = new QPushButton();
     cookingOption->setFixedSize(QSize(this->width*0.25, this->height*0.5));
     cookingOption->setIcon(QIcon(":/images/cooking.png"));
-    cookingOption->setIconSize(QSize(this->width*0.22, this->height*0.4));
+    cookingOption->setIconSize(QSize(this->width*0.2, this->height*0.35));
     cookingOption->setFlat(true);
-    //cookingOption->setStyleSheet("QPushButton{background-color: beige; border:none;} ");
+    cookingOption->setStyleSheet("QPushButton{background-color: aliceblue; border:none;} ");
 
     musicOption = new QPushButton();
     musicOption->setFixedSize(QSize(this->width*0.25, this->height*0.5));
     musicOption->setIcon(QIcon(":/images/music.png"));
-    musicOption->setIconSize(QSize(this->width*0.22, this->height*0.4));
+    musicOption->setIconSize(QSize(this->width*0.2, this->height*0.35));
     musicOption->setFlat(true);
-    //musicOption->setStyleSheet("QPushButton{background-color: beige; border:none;} ");
+    musicOption->setStyleSheet("QPushButton{background-color: aliceblue; border:none;} ");
 
     aboardOption = new QPushButton();
     aboardOption->setFixedSize(QSize(this->width*0.25, this->height*0.5));
     aboardOption->setIcon(QIcon(":/images/aboard.png"));
-    aboardOption->setIconSize(QSize(this->width*0.22, this->height*0.4));
+    aboardOption->setIconSize(QSize(this->width*0.2, this->height*0.35));
     aboardOption->setFlat(true);
-    //aboardOption->setStyleSheet("QPushButton{background-color: beige; border:none;} ");
+    aboardOption->setStyleSheet("QPushButton{background-color: aliceblue; border:none;} ");
 
     dancingOption = new QPushButton();
     dancingOption->setFixedSize(QSize(this->width*0.25, this->height*0.5));
     dancingOption->setIcon(QIcon(":/images/dancing.png"));
-    dancingOption->setIconSize(QSize(this->width*0.22, this->height*0.4));
+    dancingOption->setIconSize(QSize(this->width*0.2, this->height*0.35));
     dancingOption->setFlat(true);
-    //dancingOption->setStyleSheet("QPushButton{background-color: beige; border:none;} ");
+    dancingOption->setStyleSheet("QPushButton{background-color: aliceblue; border:none;} ");
 
     subjectsAreaWidget = new QWidget();
-    subjectsAreaWidget->setStyleSheet("background-color:beige; border: 0px solid lightgray;");
+    subjectsAreaWidget->setStyleSheet("background-color:aliceblue;  border-top: 1px solid gainsboro; border-bottom: 1px solid gainsboro;");
 
     subjectsAreaLayout = new QGridLayout(subjectsAreaWidget);
     subjectsAreaLayout->addWidget(basicSubjectOption, 0, 0);
