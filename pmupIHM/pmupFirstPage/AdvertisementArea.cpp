@@ -6,8 +6,7 @@
  * @param width
  * @param height
  */
-AdvertisementArea::AdvertisementArea(int width, int height) : QFrame()
-{
+AdvertisementArea::AdvertisementArea(int width, int height) : QFrame(){
     this->width = width;
     this->height = height;
     this->initVariable();
