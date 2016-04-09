@@ -88,7 +88,7 @@ void pmupFirstPage::constructIHM(){
     myLayout->addWidget(imageLabel);
     myLayout->addWidget(subjectsArea);
     myLayout->addWidget(advertisementArea);
-    myLayout->setSpacing(2);
+    myLayout->setSpacing(0);
     myLayout->setMargin(0);
 }
 

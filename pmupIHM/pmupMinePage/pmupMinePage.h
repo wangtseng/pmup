@@ -14,6 +14,9 @@ private:
 
 public:
     void setSize(int width, int height);
+    void init();
+    void construct();
+    void setConnection();
 
 public:
     explicit pmupMinePage(QWidget *parent = 0);

@@ -1,5 +1,11 @@
 #include "AdvertisementArea.h"
 
+
+/**
+ * @brief AdvertisementArea::AdvertisementArea
+ * @param width
+ * @param height
+ */
 AdvertisementArea::AdvertisementArea(int width, int height) : QFrame()
 {
     this->width = width;
@@ -9,7 +15,7 @@ AdvertisementArea::AdvertisementArea(int width, int height) : QFrame()
     this->setConnection();
 }
 
-//! ------------------------------------------------------------------------------------
+//! -------------------------------------------------------------------------------------------
 //!
 //! \brief AdvertisementArea::initVariable
 //!
@@ -21,6 +27,10 @@ void AdvertisementArea::initVariable(){
                           "QTabWidget::pane { border: 0; }";
 }
 
+//! --------------------------------------------------------------------------------------------
+//!
+//! \brief AdvertisementArea::constructIHM
+//!
 void AdvertisementArea::constructIHM(){
 
     xdInfomationLabel = new QPushButton();
@@ -29,7 +39,8 @@ void AdvertisementArea::constructIHM(){
     xdInfomationLabel->setIcon(QIcon(":/images/info.png"));
 
     xdInfomationEdit = new QLineEdit();
-    xdInfomationEdit->setStyleSheet("QLineEdit {border: 1px solid teal;border-radius: 0px; background: white;selection-background-color: darkgray;}");
+    xdInfomationEdit->setStyleSheet("QLineEdit {border: 1px solid teal;border-radius: 0px; "
+                                    "background: white;selection-background-color: darkgray;}");
     xdInfomationEdit->setFixedSize(width*0.7, height*0.07);
 
     xdInfomationBar = new QLabel();
@@ -63,6 +74,10 @@ void AdvertisementArea::constructIHM(){
     myLayout->setMargin(0);
 }
 
+//! ----------------------------------------------------------------------------------------
+//!
+//! \brief AdvertisementArea::setConnection
+//!
 void AdvertisementArea::setConnection(){
 
 }

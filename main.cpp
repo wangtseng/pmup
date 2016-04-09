@@ -48,8 +48,8 @@ int main(int argc, char *argv[]){
     //! ----------------------------------------------------------------------
     //! main page
     //! ----------------------------------------------------------------------
-    pmupMainWindow* enterPage = new pmupMainWindow(appWidth,appHeight);
-    enterPage->showFullScreen();
+    pmupMainWindow* enterPage = new pmupMainWindow(appWidth,appHeight*0.97);
+    enterPage->show();
 
     //! ----------------------------------------------------------------------
     //! finish splash page and turn into enter page

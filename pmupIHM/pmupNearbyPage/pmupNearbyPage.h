@@ -13,6 +13,9 @@ private:
 
 public:
     void setSize(int width, int height);
+    void init();
+    void construct();
+    void setConnection();
 
 public:
     explicit pmupNearbyPage(QWidget *parent = 0);

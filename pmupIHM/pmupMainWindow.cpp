@@ -1,21 +1,19 @@
 #include "pmupMainWindow.h"
 
 
-//! -------------------------------------------------------------------
+//! -------------------------------------------------------------------------------------------
 //!
 //! \brief pmupMainWindow::pmupMainWindow
 //! \param parent
 //!
 pmupMainWindow::pmupMainWindow(int appWidth, int appHeight) : QFrame(){
-
     setSize(appWidth, appHeight);
-
     initVariable();
     constructIHM();
     setConnections();
 }
 
-//! -------------------------------------------------------------------
+//! -------------------------------------------------------------------------------------------
 //!
 //! \brief destructeur pmupEnterPage::~pmupEnterPage
 //!
@@ -23,7 +21,7 @@ pmupMainWindow::~pmupMainWindow(){
 
 }
 
-//! -------------------------------------------------------------------
+//! -------------------------------------------------------------------------------------------
 //!
 //! \brief pmupEnterPage::setSize
 //! \param appWidth
@@ -79,8 +77,12 @@ void pmupMainWindow::constructIHM(){
 
     myLayout = new QVBoxLayout(this); 
     myLayout->addWidget(mainPagesContainer);
-    myLayout->setSpacing(2);
-    myLayout->setMargin(2);
+    myLayout->setSpacing(0);
+    myLayout->setMargin(0);
+
+    //QLineEdit ed(this);
+
+
 }
 
 //! --------------------------------------------------------------------
@@ -95,7 +97,6 @@ void pmupMainWindow::drawBackground(){
                QBrush(pixmap->scaled(QSize(this->appWidth, this->appHeight),
                                      Qt::IgnoreAspectRatio,
                                      Qt::SmoothTransformation)));
-
     this->setPalette(p);
     this->setMask(pixmap->mask());
 }
@@ -105,7 +106,7 @@ void pmupMainWindow::drawBackground(){
 //! \brief pmupEnterPage::setConnections
 //!
 void pmupMainWindow::setConnections(){
-    this->connect(mainPagesContainer, SIGNAL(currentChanged()), this, SLOT(on_TabOptionCLicked()));
+    //this->connect(mainPagesContainer, SIGNAL(currentChanged()), this, SLOT(on_TabOptionCLicked()));
 }
 
 //! ---------------------------------------------------------------------------------------------
